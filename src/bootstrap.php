@@ -19,12 +19,17 @@ try {
     echo $router->run();
 } catch(InvalidRequestException $e) {
     header('HTTP/1.1 400 Invalid');
-    throw $e;
-} catch(UnauthorizedException $e) {
-    header('HTTP/1.1 401 Unauthorized');
-    throw $e;
-} catch(\Exception $e) {
     echo json_encode([
         "error" => $e->getMessage()
+    ]);
+} catch(UnauthorizedException $e) {
+    header('HTTP/1.1 401 Unauthorized');
+    echo json_encode([
+        "error" => $e->getMessage()
+    ]);
+} catch(\Exception $e) {
+    header('HTTP/1.1 500');
+    echo json_encode([
+        "error" => "erro não esperado"
     ]);
 }

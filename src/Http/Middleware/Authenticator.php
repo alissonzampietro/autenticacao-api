@@ -3,6 +3,7 @@
 namespace API\Http\Middleware;
 
 use API\Http\Exception\UnauthorizedException;
+use API\Http\Exception\InvalidRequestException;
 
 class Authenticator
 {
@@ -11,7 +12,7 @@ class Authenticator
     public function __invoke()
     {
         if (!$this->hasToken($_SERVER)) {
-            throw new \Exception("não autorizado");
+            throw new InvalidRequestException("não autorizado");
         }
 
         if (!$this->isAValidToken($_SERVER['HTTP_TOKEN'])) {

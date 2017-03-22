@@ -15,7 +15,7 @@ class AuthenticatorTest extends TestCase
 
     /**
      * @test
-     * @expectedException \Exception
+     * @expectedException \API\Http\Exception\InvalidRequestException
      */
     public function mustThrowExceptionWhenHasNoToken()
     {
