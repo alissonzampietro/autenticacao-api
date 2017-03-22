@@ -9,6 +9,16 @@ class Authenticator
 {
     const TOKEN = 'FASDFJASLKDFJLASKD';
 
+    private function hasToken($array)
+    {
+        return isset($array['HTTP_TOKEN']);
+    }
+
+    private function isAValidToken($token)
+    {
+        return $token == self::TOKEN;
+    }
+
     public function __invoke()
     {
         if (!$this->hasToken($_SERVER)) {
@@ -18,16 +28,6 @@ class Authenticator
         if (!$this->isAValidToken($_SERVER['HTTP_TOKEN'])) {
             throw new UnauthorizedException("token inválido");
         }
-    }
-
-    private function hasToken($array)
-    {
-        return isset($array['HTTP_TOKEN']);
-    }
-
-    private function isAValidToken($token)
-    {
-        return $token == self::TOKEN;
     }
 
     public function createNewToken()
