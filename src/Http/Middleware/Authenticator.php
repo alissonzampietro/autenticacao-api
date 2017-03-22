@@ -13,7 +13,7 @@ class Authenticator
     {
         return isset($array['HTTP_TOKEN']);
     }
-
+    
     private function isAValidToken($token)
     {
         return $token == self::TOKEN;

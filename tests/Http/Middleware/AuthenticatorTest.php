@@ -10,6 +10,7 @@ class AuthenticatorTest extends TestCase
 
     public function setUp()
     {
+        $_SERVER['HTTP_TOKEN'] = Authenticator::TOKEN;
         $this->auth = new Authenticator();
     }
 
@@ -29,6 +30,7 @@ class AuthenticatorTest extends TestCase
      */
     public function mustThrowExceptionWhenTokenIsntValid()
     {
+        //definindo token inválido
         $_SERVER['HTTP_TOKEN'] = 'ASIUASUIHAISUASUH';
         $this->auth->__invoke();
     }
@@ -38,7 +40,6 @@ class AuthenticatorTest extends TestCase
      */
     public function mustAuthenticateRequisition()
     {
-        $_SERVER['HTTP_TOKEN'] = Authenticator::TOKEN;
         $this->auth->__invoke();
     }
 
