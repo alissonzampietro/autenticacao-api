@@ -7,9 +7,14 @@
         }
     ],
     "autoload": {
-      "psr-4": {
-        "API\\": "src/"
-      }
+        "psr-4": {
+            "API\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "API\\": "tests/"
+        }
     },
     "require": {
         "respect/rest": "^0.6.0"
