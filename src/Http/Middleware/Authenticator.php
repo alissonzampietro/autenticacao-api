@@ -19,7 +19,7 @@ class Authenticator
         return $token == self::TOKEN;
     }
 
-    public function __invoke()
+    public function __construct()
     {
         if (!$this->hasToken($_SERVER)) {
             throw new InvalidRequestException("não autorizado");

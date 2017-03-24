@@ -1,5 +1,5 @@
 {
-    "name": "alisson/study-api",
+    "name": "alisson/autenticacao-api",
     "authors": [
         {
             "name": "Alisson Zampietro",
@@ -17,7 +17,8 @@
         }
     },
     "require": {
-        "respect/rest": "^0.6.0"
+        "respect/rest": "^0.6.0",
+        "doctrine/orm": "^2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
