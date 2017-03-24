@@ -1,3 +1,6 @@
 vendor/
 .floo
 .flooignore
+.buildpath 
+.project 
+.settings/*
